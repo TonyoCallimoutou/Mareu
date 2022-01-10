@@ -1,14 +1,12 @@
-package com.example.mareu;
+package com.example.mareu.ui.reunion_list;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.example.mareu.R;
+import com.example.mareu.ui.reunion_list.AddReunionActivity;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 

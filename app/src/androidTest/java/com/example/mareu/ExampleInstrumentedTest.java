@@ -11,16 +11,34 @@ import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
 
 /**
- * Instrumented test, which will execute on an Android device.
- *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+ * Test class for list of reunion
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
+
+
     @Test
-    public void useAppContext() {
-        // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.mareu", appContext.getPackageName());
+    public void myReunionsList_shouldNotBeEmpty() {
+
+    }
+
+    @Test
+    public void myReunionsList_deleteAction_shouldRemoveItem() {
+
+    }
+
+    @Test
+    public void myReunionsList_addAction() {
+
+    }
+
+    @Test
+    public void myReunionList_ByTime() {
+
+    }
+
+    @Test
+    public void myReunionList_ByPlace() {
+
     }
 }

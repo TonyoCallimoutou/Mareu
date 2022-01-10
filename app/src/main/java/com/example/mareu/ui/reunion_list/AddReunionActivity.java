@@ -1,4 +1,4 @@
-package com.example.mareu;
+package com.example.mareu.ui.reunion_list;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -6,6 +6,8 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.example.mareu.R;
 
 public class AddReunionActivity extends AppCompatActivity {
 
