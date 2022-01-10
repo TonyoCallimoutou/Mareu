@@ -4,6 +4,7 @@ import com.example.mareu.model.Participant;
 import com.example.mareu.model.Place;
 import com.example.mareu.model.Reunion;
 
+import java.util.Date;
 import java.util.List;
 
 public interface ApiService {
@@ -27,12 +28,12 @@ public interface ApiService {
     /**
      * filter by hour
      */
-    List<Reunion> getReunionsByTime();
+    List<Reunion> getReunionsByTime(Date date);
 
     /**
      * filter by place
      */
-    List<Reunion> getReunionsByPlace();
+    List<Reunion> getReunionsByPlace(Place place);
 
     // Participant
     /**

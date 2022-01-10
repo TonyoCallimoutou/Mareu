@@ -22,5 +22,8 @@ public class Place {
         this.place = place;
     }
 
-
+    @Override
+    public String toString() {
+        return  place ;
+    }
 }

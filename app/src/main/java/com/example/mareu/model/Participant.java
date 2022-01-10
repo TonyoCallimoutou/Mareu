@@ -23,4 +23,8 @@ public class Participant {
         this.mail = mail;
     }
 
+    @Override
+    public String toString() {
+        return  mail ;
+    }
 }

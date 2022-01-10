@@ -5,6 +5,11 @@
       <map>
         <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/activity_add_reunion.xml" value="0.1580547112462006" />
         <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/activity_reunion_list.xml" value="0.1580547112462006" />
+        <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/fragment_reunion.xml" value="0.3333333333333333" />
+        <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/fragment_reunion_item.xml" value="0.1580547112462006" />
+        <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/include_reunion_infos.xml" value="0.1580547112462006" />
+        <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/item_fragment_reunion.xml" value="0.1580547112462006" />
+        <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/test.xml" value="0.1580547112462006" />
       </map>
     </option>
   </component>
