@@ -1,5 +1,7 @@
 package com.example.mareu.model;
 
+import java.util.Objects;
+
 public class Place {
     /** place */
     private String place;
@@ -25,5 +27,18 @@ public class Place {
     @Override
     public String toString() {
         return  place ;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Place place1 = (Place) o;
+        return Objects.equals(place, place1.place);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(place);
     }
 }

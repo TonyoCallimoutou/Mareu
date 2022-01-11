@@ -1,37 +1,38 @@
 package com.example.mareu.ui.reunion_list;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Spinner;
+import android.view.MenuItem;
 
+import com.example.mareu.AddReunionFragmentPart1;
+import com.example.mareu.AddReunionFragmentPart2;
 import com.example.mareu.R;
 import com.example.mareu.di.DI;
-import com.example.mareu.methode.SetSpinner;
+import com.example.mareu.model.Participant;
 import com.example.mareu.model.Place;
 import com.example.mareu.model.Reunion;
 import com.example.mareu.service.ApiService;
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.textfield.TextInputLayout;
 
-import java.sql.Time;
+import java.io.Serializable;
+import java.lang.reflect.Parameter;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class AddReunionActivity extends AppCompatActivity {
 
-    @BindView(R.id.spinner_place)
-    Spinner mSpinnerPlace;
-    @BindView(R.id.input_topic)
-    TextInputLayout mInputTopic;
-
     ApiService mApiService;
-    SetSpinner setSpinner;
+    AddReunionFragmentPart1 fragmentPage1;
+
+    Bundle bundle;
+    private static final String REUNION = "REUNION";
+    private Reunion mReunion;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,40 +43,18 @@ public class AddReunionActivity extends AppCompatActivity {
 
         mApiService = DI.getReunionApiService();
 
-        setSpinner = new SetSpinner(mApiService);
+        bundle = new Bundle();
 
-        setSpinner.getSpinnerPlaces(this, mSpinnerPlace);
-
-
-    }
-
-    @OnClick(R.id.alertDialog)
-    void alertDialog() {
-        setSpinner.getDialogParticipant(this,mApiService);
-    }
-
-
-    @OnClick(R.id.create)
-    void addReunion() {
-
-        // Data
-        Place place = (Place) mSpinnerPlace.getSelectedItem();
-
-
-        // Reunion
-        Reunion reunion = new Reunion(
+        mReunion = new Reunion(
                 System.currentTimeMillis(),
                 null,
-                place,
-                mInputTopic.getEditText().getText().toString(),
-                null
-                );
+                null,
+                null,
+                null);
 
-        mApiService.createReunion(reunion);
-        finish();
+        initFragment();
+
     }
-
-
 
     /**
      * Used to navigate to this activity
@@ -85,5 +64,27 @@ public class AddReunionActivity extends AppCompatActivity {
         Intent intent = new Intent(activity, AddReunionActivity.class);
         ActivityCompat.startActivity(activity, intent, null);
     }
+
+    public void initFragment() {
+
+        fragmentPage1 = new AddReunionFragmentPart1().newInstance();
+        bundle.putSerializable(REUNION,(Serializable) mReunion);
+        fragmentPage1.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_add_fragment,fragmentPage1)
+                .commit();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home : {
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
 }

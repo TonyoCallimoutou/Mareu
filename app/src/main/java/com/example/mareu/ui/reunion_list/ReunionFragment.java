@@ -33,11 +33,11 @@ public class ReunionFragment extends Fragment {
     private ApiService mApiService;
 
 
-    // TODO: Rename parameter arguments, choose names that match
+
     private static final String FILTER_POSITION = "FILTER_POSITION";
     private static final String OBJECT = "OBJECT";
 
-    // TODO: Rename and change types of parameters
+
     private int mFilterPosition;
     private Object mObject;
 
@@ -50,7 +50,7 @@ public class ReunionFragment extends Fragment {
      * @param object Parameter 2.
      * @return A new instance of fragment ReunionFragment.
      */
-    // TODO: Rename and change types and number of parameters
+
     public static ReunionFragment newInstance(int filterPosition, Object object) {
         ReunionFragment fragment = new ReunionFragment();
         Bundle args = new Bundle();

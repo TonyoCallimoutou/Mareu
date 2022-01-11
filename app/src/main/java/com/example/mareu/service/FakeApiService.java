@@ -61,4 +61,11 @@ public class FakeApiService implements ApiService {
     public List<Place> getPlace() {
         return places;
     }
+
+    @Override
+    public List<Participant> getParticipantEmpty() {
+        List<Participant> listVide = FakeApiGenerator.generateParticipants();
+        listVide.clear();
+        return  listVide;
+    }
 }

@@ -1,15 +1,17 @@
 package com.example.mareu.model;
 
+import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class Reunion {
+public class Reunion implements Serializable {
 
     /** Identifier */
     private long id;
 
     /** Time */
-    private Date time;
+    private Calendar time;
 
     /** Place */
     private Place place;
@@ -23,7 +25,7 @@ public class Reunion {
     /**
      * Constructor
      */
-    public Reunion(long id, Date time, Place place, String topic, List<Participant> participant) {
+    public Reunion(long id, Calendar time, Place place, String topic, List<Participant> participant) {
         this.id = id;
         this.time = time;
         this.place = place;
@@ -42,11 +44,11 @@ public class Reunion {
         this.id = id;
     }
 
-    public Date getTime() {
+    public Calendar getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(Calendar time) {
         this.time = time;
     }
 

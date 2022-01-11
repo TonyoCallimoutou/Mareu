@@ -47,4 +47,9 @@ public interface ApiService {
      */
     List<Place> getPlace();
 
+    /**
+     * Get Empty list of Employee
+     */
+    List<Participant> getParticipantEmpty();
+
 }

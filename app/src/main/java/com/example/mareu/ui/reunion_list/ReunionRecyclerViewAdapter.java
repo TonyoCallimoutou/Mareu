@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -40,9 +41,15 @@ public class ReunionRecyclerViewAdapter extends RecyclerView.Adapter<ReunionRecy
         Reunion reunion =mReunions.get(position);
 
         holder.mReunionPlace.setText(reunion.getPlace().toString());
-        holder.mReunionTime.setText(reunion.getTime().toString());
+        holder.mReunionTime.setText(reunion.getTime().getTime().toString());
         holder.mReunionTopic.setText(reunion.getTopic());
         holder.mReunionParticipant.setText(reunion.getParticipant().toString());
+        holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Delete Reunion
+            }
+        });
 
     }
 
@@ -54,7 +61,7 @@ public class ReunionRecyclerViewAdapter extends RecyclerView.Adapter<ReunionRecy
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.item_list_delete_button)
-        Button mDeleteButton;
+        ImageButton mDeleteButton;
         @BindView(R.id.item_list_place)
         TextView mReunionPlace;
         @BindView(R.id.item_list_time)

@@ -8,9 +8,8 @@ import android.widget.Spinner;
 
 import com.example.mareu.R;
 import com.example.mareu.di.DI;
-import com.example.mareu.methode.SetSpinner;
+import com.example.mareu.methode.SetData;
 import com.example.mareu.service.ApiService;
-import com.example.mareu.ui.reunion_list.AddReunionActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,9 +36,9 @@ public class ListReunionActivity extends AppCompatActivity{
 
         mApiService = DI.getReunionApiService();
 
-        SetSpinner setSpinner = new SetSpinner(mApiService);
+        SetData setData = new SetData(mApiService);
 
-        setSpinner.getFilter(this,mSpinnerFilter);
+        setData.getFilter(this,mSpinnerFilter);
 
         initFragment();
 
@@ -51,7 +50,6 @@ public class ListReunionActivity extends AppCompatActivity{
                 .replace(R.id.container, reunionFragment)
                 .commit();
     }
-
 
     @OnClick(R.id.fab_add_reunion)
     void addReunion () {

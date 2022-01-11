@@ -7,6 +7,7 @@ import com.example.mareu.model.Reunion;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -44,7 +45,7 @@ public class FakeApiGenerator {
             FAKE_PARTICIPANT.get(5)
     );
 
-    public static Date date = new Date();
+    public static Calendar date = Calendar.getInstance();
 
     public static List<Reunion> FAKE_REUNION = Arrays.asList(
             new Reunion(001,date,FAKE_PLACE.get(0),"Peach",PARTICIPANT1),
