@@ -13,8 +13,5 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"/>
 
-    <include
-        layout="@layout/include_add_reunion_fragment"
-        />
 
 </LinearLayout>

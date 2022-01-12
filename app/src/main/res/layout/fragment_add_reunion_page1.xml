@@ -37,10 +37,6 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <include
-            layout="@layout/include_add_reunion_fragment"
-            />
-
     </LinearLayout>
 
 </ScrollView>

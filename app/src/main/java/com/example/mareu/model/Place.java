@@ -1,8 +1,9 @@
 package com.example.mareu.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Place {
+public class Place implements Serializable {
     /** place */
     private String place;
 

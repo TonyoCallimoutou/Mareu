@@ -1,6 +1,10 @@
 package com.example.mareu.model;
 
+import android.annotation.SuppressLint;
+import android.text.Editable;
+
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -44,8 +48,9 @@ public class Reunion implements Serializable {
         this.id = id;
     }
 
-    public Calendar getTime() {
-        return time;
+    public String getTime() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm");
+        return dateFormat.format(time.getTime());
     }
 
     public void setTime(Calendar time) {

@@ -24,9 +24,6 @@
             android:layout_height="wrap_content"
             android:timePickerMode="spinner" />
 
-        <include
-            layout="@layout/include_add_reunion_fragment" />
-
     </LinearLayout>
 
 </ScrollView>

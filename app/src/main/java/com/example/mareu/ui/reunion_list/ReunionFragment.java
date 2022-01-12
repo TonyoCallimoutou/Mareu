@@ -13,9 +13,13 @@ import android.view.ViewGroup;
 
 import com.example.mareu.R;
 import com.example.mareu.di.DI;
+import com.example.mareu.event.DeleteReunionEvent;
 import com.example.mareu.model.Place;
 import com.example.mareu.model.Reunion;
 import com.example.mareu.service.ApiService;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -87,16 +91,17 @@ public class ReunionFragment extends Fragment {
         if (mFilterPosition == 0) {
             mReunion = mApiService.getReunion();
         }
+
         else if (mFilterPosition == 1) {
             Date object = (Date) mObject;
             mReunion = mApiService.getReunionsByTime(object);
         }
+
         else if (mFilterPosition == 2) {
             Place object = (Place) mObject;
             mReunion = mApiService.getReunionsByPlace(object);
         }
 
-        mReunion = mApiService.getReunion();
         mRecyclerView.setAdapter(new ReunionRecyclerViewAdapter(mReunion));
     }
 
@@ -109,10 +114,18 @@ public class ReunionFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        EventBus.getDefault().register(this);
     }
 
     @Override
     public void onStop() {
         super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe
+    public void onDeleteReunionEvent(DeleteReunionEvent event) {
+        mApiService.deleteReunion(event.getReunion());
+        initList();
     }
 }

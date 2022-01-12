@@ -11,8 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mareu.R;
+import com.example.mareu.event.DeleteReunionEvent;
 import com.example.mareu.model.Place;
 import com.example.mareu.model.Reunion;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -41,13 +44,13 @@ public class ReunionRecyclerViewAdapter extends RecyclerView.Adapter<ReunionRecy
         Reunion reunion =mReunions.get(position);
 
         holder.mReunionPlace.setText(reunion.getPlace().toString());
-        holder.mReunionTime.setText(reunion.getTime().getTime().toString());
+        holder.mReunionTime.setText(reunion.getTime());
         holder.mReunionTopic.setText(reunion.getTopic());
         holder.mReunionParticipant.setText(reunion.getParticipant().toString());
         holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Delete Reunion
+                EventBus.getDefault().post(new DeleteReunionEvent(reunion));
             }
         });
 

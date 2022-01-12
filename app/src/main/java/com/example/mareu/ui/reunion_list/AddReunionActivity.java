@@ -4,29 +4,40 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.mareu.AddReunionFragmentPage1;
 import com.example.mareu.R;
 import com.example.mareu.di.DI;
 import com.example.mareu.model.Reunion;
 import com.example.mareu.service.ApiService;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.io.Serializable;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class AddReunionActivity extends AppCompatActivity {
 
-    ApiService mApiService;
-    AddReunionFragmentPage1 fragmentPage1;
+    @BindView(R.id.tab_layout)
+    TabLayout tabLayout;
+    @BindView(R.id.container_add_fragment)
+    ViewPager2 viewPager;
+    @BindView(R.id.text_create_reunion)
+    TextView reunionCreate;
 
-    Bundle bundle;
-    private static final String REUNION = "REUNION";
+    ApiService mApiService;
+
     private Reunion mReunion;
+    AddReunionPageAdapter adapter;
 
 
     @Override
@@ -38,8 +49,6 @@ public class AddReunionActivity extends AppCompatActivity {
 
         mApiService = DI.getReunionApiService();
 
-        bundle = new Bundle();
-
         mReunion = new Reunion(
                 System.currentTimeMillis(),
                 null,
@@ -47,7 +56,12 @@ public class AddReunionActivity extends AppCompatActivity {
                 null,
                 null);
 
-        initFragment();
+        adapter = new AddReunionPageAdapter(this,mReunion);
+        viewPager.setAdapter(adapter);
+        new TabLayoutMediator(tabLayout, viewPager,
+                (tab, position) -> tab.setText("OBJECT " + (position + 1))
+        ).attach();
+
 
     }
 
@@ -60,16 +74,6 @@ public class AddReunionActivity extends AppCompatActivity {
         ActivityCompat.startActivity(activity, intent, null);
     }
 
-    public void initFragment() {
-
-        fragmentPage1 = new AddReunionFragmentPage1().newInstance();
-        bundle.putSerializable(REUNION,(Serializable) mReunion);
-        fragmentPage1.setArguments(bundle);
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_add_fragment,fragmentPage1)
-                .commit();
-    }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -79,6 +83,16 @@ public class AddReunionActivity extends AppCompatActivity {
             }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @OnClick(R.id.create)
+    void createReunion() {
+        mReunion = AddReunionPageAdapter.getReunion();
+        String s = "Reunion "+ mReunion.getTime().toString() ;
+        reunionCreate.setText(s);
+
+        mApiService.createReunion(mReunion);
+        finish();
     }
 
 
