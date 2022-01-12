@@ -22,6 +22,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -93,7 +94,7 @@ public class ReunionFragment extends Fragment {
         }
 
         else if (mFilterPosition == 1) {
-            Date object = (Date) mObject;
+            Calendar object = (Calendar) mObject;
             mReunion = mApiService.getReunionsByTime(object);
         }
 

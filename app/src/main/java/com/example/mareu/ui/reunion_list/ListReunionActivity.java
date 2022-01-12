@@ -102,9 +102,10 @@ public class ListReunionActivity extends AppCompatActivity{
             public void onDateSet(DatePicker view, int year,
                                   int monthOfYear, int dayOfMonth) {
 
-                System.out.println("years = " + year + " - Month of year = "+ (monthOfYear + 1) + " - Day = "+dayOfMonth);
-
-                Date date = new Date(year,monthOfYear,dayOfMonth);
+                Calendar date = Calendar.getInstance();
+                date.set(Calendar.YEAR,year);
+                date.set(Calendar.MONTH,monthOfYear);
+                date.set(Calendar.DAY_OF_MONTH,dayOfMonth);
 
                 initFragment(1,date);
 

@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class Reunion implements Serializable {
 
@@ -48,8 +49,17 @@ public class Reunion implements Serializable {
         this.id = id;
     }
 
-    public String getTime() {
+    public Calendar getTime() {
+        return time;
+    }
+
+    public String getStringTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm");
+
+        if (time == null) {
+            return null;
+        }
+
         return dateFormat.format(time.getTime());
     }
 
@@ -79,6 +89,21 @@ public class Reunion implements Serializable {
 
     public void setParticipant(List<Participant> participant) {
         this.participant = participant;
+    }
+
+    public boolean equalTime(Calendar date) {
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        String string1 = dateFormat.format(time.getTime());
+        String string2 = dateFormat.format(date.getTime());
+
+        if (string1.equals(string2))  {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 }

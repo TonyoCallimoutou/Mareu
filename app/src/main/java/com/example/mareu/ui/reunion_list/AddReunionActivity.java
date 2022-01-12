@@ -87,9 +87,12 @@ public class AddReunionActivity extends AppCompatActivity {
 
     @OnClick(R.id.create)
     void createReunion() {
+        /*
         mReunion = AddReunionPageAdapter.getReunion();
         String s = "Reunion "+ mReunion.getTime().toString() ;
         reunionCreate.setText(s);
+
+         */
 
         mApiService.createReunion(mReunion);
         finish();

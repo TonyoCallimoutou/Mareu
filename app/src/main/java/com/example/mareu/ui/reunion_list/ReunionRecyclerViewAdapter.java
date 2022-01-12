@@ -43,10 +43,10 @@ public class ReunionRecyclerViewAdapter extends RecyclerView.Adapter<ReunionRecy
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Reunion reunion =mReunions.get(position);
 
-        holder.mReunionPlace.setText(reunion.getPlace().toString());
-        holder.mReunionTime.setText(reunion.getTime());
+        holder.mReunionPlace.setText(doString(reunion.getPlace()));
+        holder.mReunionTime.setText(doString(reunion.getStringTime()));
         holder.mReunionTopic.setText(reunion.getTopic());
-        holder.mReunionParticipant.setText(reunion.getParticipant().toString());
+        holder.mReunionParticipant.setText(doString(reunion.getParticipant()));
         holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +54,15 @@ public class ReunionRecyclerViewAdapter extends RecyclerView.Adapter<ReunionRecy
             }
         });
 
+    }
+
+    public String doString(Object object) {
+        if (object == null) {
+            return "Aucune donnée";
+        }
+        else {
+            return object.toString();
+        }
     }
 
     @Override
