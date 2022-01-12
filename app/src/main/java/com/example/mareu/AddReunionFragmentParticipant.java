@@ -26,10 +26,10 @@ import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AddReunionFragmentPart2#newInstance} factory method to
+ * Use the {@link AddReunionFragmentParticipant#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AddReunionFragmentPart2 extends Fragment {
+public class AddReunionFragmentParticipant extends Fragment {
 
 
     @BindView(R.id.list_view_participant)
@@ -38,15 +38,16 @@ public class AddReunionFragmentPart2 extends Fragment {
 
     ApiService mApiService;
     SetData mSetData;
-    AddReunionFragmentPart1 fragmentPage1;
+    AddReunionFragmentPage1 fragmentPage1;
+    AddReunionFragmentDate fragmentPageDate;
 
     Bundle bundle;
     private static final String REUNION = "REUNION";
     Reunion mReunion;
     List<Participant> listParticipant;
 
-    public static AddReunionFragmentPart2 newInstance() {
-        AddReunionFragmentPart2 fragment = new AddReunionFragmentPart2();
+    public static AddReunionFragmentParticipant newInstance() {
+        AddReunionFragmentParticipant fragment = new AddReunionFragmentParticipant();
         return fragment;
     }
 
@@ -116,11 +117,23 @@ public class AddReunionFragmentPart2 extends Fragment {
     void goToPage1() {
         mReunion.setParticipant(listParticipant);
 
-        fragmentPage1 = new AddReunionFragmentPart1().newInstance();
+        fragmentPage1 = new AddReunionFragmentPage1().newInstance();
         bundle.putSerializable(REUNION,(Serializable) mReunion);
         fragmentPage1.setArguments(bundle);
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container_add_fragment,fragmentPage1)
+                .commit();
+    }
+
+    @OnClick(R.id.page2)
+    void goToPage2() {
+        mReunion.setParticipant(listParticipant);
+
+        fragmentPageDate = new AddReunionFragmentDate().newInstance();
+        bundle.putSerializable(REUNION,(Serializable) mReunion);
+        fragmentPageDate.setArguments(bundle);
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_add_fragment,fragmentPageDate)
                 .commit();
     }
 

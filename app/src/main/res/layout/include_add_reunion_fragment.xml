@@ -20,6 +20,13 @@
         android:text="page2" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/page3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cornerRadius="20dp"
+        android:text="page3" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

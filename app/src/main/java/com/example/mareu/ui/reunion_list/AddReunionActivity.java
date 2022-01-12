@@ -9,25 +9,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.mareu.AddReunionFragmentPart1;
-import com.example.mareu.AddReunionFragmentPart2;
+import com.example.mareu.AddReunionFragmentPage1;
 import com.example.mareu.R;
 import com.example.mareu.di.DI;
-import com.example.mareu.model.Participant;
-import com.example.mareu.model.Place;
 import com.example.mareu.model.Reunion;
 import com.example.mareu.service.ApiService;
 
 import java.io.Serializable;
-import java.lang.reflect.Parameter;
 
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class AddReunionActivity extends AppCompatActivity {
 
     ApiService mApiService;
-    AddReunionFragmentPart1 fragmentPage1;
+    AddReunionFragmentPage1 fragmentPage1;
 
     Bundle bundle;
     private static final String REUNION = "REUNION";
@@ -67,7 +62,7 @@ public class AddReunionActivity extends AppCompatActivity {
 
     public void initFragment() {
 
-        fragmentPage1 = new AddReunionFragmentPart1().newInstance();
+        fragmentPage1 = new AddReunionFragmentPage1().newInstance();
         bundle.putSerializable(REUNION,(Serializable) mReunion);
         fragmentPage1.setArguments(bundle);
         getSupportFragmentManager().beginTransaction()
