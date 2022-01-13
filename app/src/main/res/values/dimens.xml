@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <dimen name="margin_save_button"> 16dp </dimen>
+    <dimen name="margin_picker_time_and_date"> 16dp </dimen>
+    <dimen name="margin_top_choice_place"> 32dp </dimen>
+
+</resources>

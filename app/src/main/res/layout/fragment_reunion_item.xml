@@ -3,19 +3,23 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:stretchColumns="0">
+    android:padding="16dp"
+    android:stretchColumns="1">
 
     <TableRow>
         <include
             layout="@layout/include_reunion_infos"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
 
 
         <ImageButton
             android:id="@+id/item_list_delete_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center|end"
+            android:background="@null"
             android:src="@drawable/ic_delete_black_24dp" />
     </TableRow>
 

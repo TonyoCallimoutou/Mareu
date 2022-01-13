@@ -11,9 +11,12 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.reunion_list.AddReunionActivity"
-            android:exported="false" />
+            android:configChanges="orientation|screenSize"
+            android:exported="false"
+            android:label="@string/activity_add_reunion"/>
         <activity
             android:name=".ui.reunion_list.ListReunionActivity"
+            android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar"
             android:exported="true">
             <intent-filter>

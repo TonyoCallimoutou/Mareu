@@ -1,4 +1,4 @@
-package com.example.mareu;
+package com.example.mareu.ui.reunion_list;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 
+import com.example.mareu.R;
 import com.example.mareu.di.DI;
 import com.example.mareu.model.Reunion;
 import com.example.mareu.service.ApiService;

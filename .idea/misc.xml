@@ -3,18 +3,30 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/drawable/border.xml" value="0.26481481481481484" />
         <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/drawable/ic_delete_black_24dp.xml" value="0.30462962962962964" />
+        <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout-hdpi/fragment_add_reunion_date.xml" value="0.3333333333333333" />
+        <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout-land/activity_add_reunion.xml" value="0.1" />
+        <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout-land/activity_reunion_list.xml" value="0.1" />
+        <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout-land/fragment_add_reunion_date.xml" value="0.1" />
+        <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout-large/fragment_add_reunion_date.xml" value="0.3333333333333333" />
+        <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout-xhdpi/fragment_add_reunion_date.xml" value="0.3333333333333333" />
         <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/activity_add_reunion.xml" value="0.1580547112462006" />
         <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/activity_reunion_list.xml" value="0.1580547112462006" />
+        <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/fragment_add_reunion_date.xml" value="0.1580547112462006" />
+        <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/fragment_add_reunion_page1.xml" value="0.1580547112462006" />
         <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/fragment_add_reunion_part1.xml" value="0.1580547112462006" />
         <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/fragment_add_reunion_part3.xml" value="0.1580547112462006" />
+        <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/fragment_add_reunion_participant.xml" value="0.1" />
         <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/fragment_add_reunionpart2.xml" value="0.1580547112462006" />
         <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/fragment_reunion.xml" value="0.3333333333333333" />
-        <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/fragment_reunion_item.xml" value="0.1580547112462006" />
+        <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/fragment_reunion_item.xml" value="0.4293381037567084" />
         <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/include_add_reunion_fragment.xml" value="0.1580547112462006" />
         <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/include_reunion_infos.xml" value="0.1580547112462006" />
         <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/item_fragment_reunion.xml" value="0.1580547112462006" />
+        <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/spinner_item.xml" value="0.1580547112462006" />
         <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/layout/test.xml" value="0.1580547112462006" />
+        <entry key="..\:/Documents/Code/OpenClassroom/Projet_4/Mareu/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.26481481481481484" />
       </map>
     </option>
   </component>

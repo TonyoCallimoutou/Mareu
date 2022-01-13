@@ -1,5 +1,9 @@
 <resources>
+
     <string name="app_name">Mareu</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="activity_add_reunion">Add new reunion</string>
+
+    <string name="tabItem1">Page 1</string>
+    <string name="tabItem2">Date</string>
+    <string name="tabItem3">Participant</string>
 </resources>

@@ -54,7 +54,7 @@ public class Reunion implements Serializable {
     }
 
     public String getStringTime() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd 'at' HH:mm");
 
         if (time == null) {
             return null;

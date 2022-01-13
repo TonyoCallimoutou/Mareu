@@ -9,17 +9,13 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-import com.example.mareu.AddReunionFragmentPage1;
 import com.example.mareu.R;
 import com.example.mareu.di.DI;
 import com.example.mareu.model.Reunion;
 import com.example.mareu.service.ApiService;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
-
-import java.io.Serializable;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,8 +27,6 @@ public class AddReunionActivity extends AppCompatActivity {
     TabLayout tabLayout;
     @BindView(R.id.container_add_fragment)
     ViewPager2 viewPager;
-    @BindView(R.id.text_create_reunion)
-    TextView reunionCreate;
 
     ApiService mApiService;
 
@@ -62,7 +56,6 @@ public class AddReunionActivity extends AppCompatActivity {
                 (tab, position) -> tab.setText("OBJECT " + (position + 1))
         ).attach();
 
-
     }
 
     /**
@@ -85,15 +78,11 @@ public class AddReunionActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
     @OnClick(R.id.create)
     void createReunion() {
-        /*
+
         mReunion = AddReunionPageAdapter.getReunion();
-        String s = "Reunion "+ mReunion.getTime().toString() ;
-        reunionCreate.setText(s);
-
-         */
-
         mApiService.createReunion(mReunion);
         finish();
     }

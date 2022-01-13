@@ -1,18 +1,11 @@
 package com.example.mareu.ui.reunion_list;
 
-import android.os.Build;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.mareu.AddReunionFragmentDate;
-import com.example.mareu.AddReunionFragmentPage1;
-import com.example.mareu.AddReunionFragmentParticipant;
 import com.example.mareu.model.Reunion;
-import com.example.mareu.service.FakeApiGenerator;
 
 public class AddReunionPageAdapter extends FragmentStateAdapter {
 

@@ -1,4 +1,4 @@
-package com.example.mareu;
+package com.example.mareu.ui.reunion_list;
 
 import android.os.Bundle;
 
@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.mareu.R;
 import com.example.mareu.di.DI;
 import com.example.mareu.methode.SetData;
 import com.example.mareu.model.Participant;
