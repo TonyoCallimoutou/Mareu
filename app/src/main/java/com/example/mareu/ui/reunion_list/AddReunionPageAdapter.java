@@ -22,7 +22,7 @@ public class AddReunionPageAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case 0:
-                return new AddReunionFragmentPage1(reunion);
+                return new AddReunionFragmentPlace(reunion);
             case 1:
                 return new AddReunionFragmentDate(reunion);
             case 2:

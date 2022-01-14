@@ -57,7 +57,9 @@ public class ListReunionActivity extends AppCompatActivity{
     public void getFilter() {
 
         ArrayAdapter<String> filterAdapter = new ArrayAdapter<String>(this,
-                R.layout.support_simple_spinner_dropdown_item,setData.getArrayFilter());
+                R.layout.spinner_item_white,setData.getArrayFilter());
+
+        filterAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
 
 
         mSpinnerFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

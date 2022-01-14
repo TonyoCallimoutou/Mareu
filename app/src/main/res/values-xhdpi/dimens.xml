@@ -5,4 +5,9 @@
     <dimen name="margin_picker_time_and_date"> 16dp </dimen>
     <dimen name="margin_top_choice_place"> 32dp </dimen>
 
+    <dimen name="font_size_text_list"> 16sp </dimen>
+    <dimen name="font_size_text_add_page1"> 16sp </dimen>
+    <dimen name="font_size_text_add_time"> 16sp </dimen>
+    <dimen name="font_size_spinner" > 16sp</dimen>
+
 </resources>

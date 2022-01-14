@@ -15,5 +15,15 @@
     </style>
     
     <style name="AppTheme.ActionBarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+    
+
+    <style name="SpinnerItemStyleWhite" parent="@android:style/Widget.Holo.DropDownItem.Spinner" >
+        <item name="android:textColor" >@color/white </item>
+        <item name="android:textSize" >@dimen/font_size_spinner</item>
+    </style>
+
+    <style name="SpinnerItemStyleBlack" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+        <item name="android:textSize" >@dimen/font_size_spinner</item>
+    </style>
 
 </resources>

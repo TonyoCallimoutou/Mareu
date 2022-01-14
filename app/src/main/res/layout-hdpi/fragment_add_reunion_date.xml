@@ -16,6 +16,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:textSize="@dimen/font_size_text_add_time"
                 android:text="Choose the date \nof the reunion :" />
 
             <DatePicker
@@ -32,6 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_picker_time_and_date"
                 android:layout_gravity="center_vertical"
+                android:textSize="@dimen/font_size_text_add_time"
                 android:text="At : " />
 
             <TimePicker

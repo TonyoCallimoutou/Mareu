@@ -19,14 +19,13 @@ import com.example.mareu.methode.SetData;
 import com.example.mareu.model.Place;
 import com.example.mareu.model.Reunion;
 import com.example.mareu.service.ApiService;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class AddReunionFragmentPage1 extends Fragment {
+public class AddReunionFragmentPlace extends Fragment {
 
     @BindView(R.id.spinner_place)
     Spinner mSpinnerPlace;
@@ -37,10 +36,10 @@ public class AddReunionFragmentPage1 extends Fragment {
     SetData mSetData;
     Reunion mReunion;
 
-    public AddReunionFragmentPage1() {
+    public AddReunionFragmentPlace() {
 
     }
-    public AddReunionFragmentPage1(Reunion reunion) {
+    public AddReunionFragmentPlace(Reunion reunion) {
         mReunion = reunion;
     }
 
@@ -60,7 +59,7 @@ public class AddReunionFragmentPage1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view =  inflater.inflate(R.layout.fragment_add_reunion_page1, container, false);
+        View view =  inflater.inflate(R.layout.fragment_add_reunion_place, container, false);
 
         ButterKnife.bind(this,view);
 
@@ -74,7 +73,10 @@ public class AddReunionFragmentPage1 extends Fragment {
     public void getSpinnerPlaces() {
 
         ArrayAdapter<Place> placeAdapter = new ArrayAdapter<Place>(getContext(),
-                R.layout.support_simple_spinner_dropdown_item, mSetData.getArrayPlaces());
+                R.layout.spinner_item_black, mSetData.getArrayPlaces());
+
+        placeAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+
 
         mSpinnerPlace.setAdapter(placeAdapter);
 

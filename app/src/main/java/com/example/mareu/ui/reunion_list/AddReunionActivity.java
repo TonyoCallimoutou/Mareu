@@ -50,11 +50,24 @@ public class AddReunionActivity extends AppCompatActivity {
                 null,
                 null);
 
+
+
         adapter = new AddReunionPageAdapter(this,mReunion);
         viewPager.setAdapter(adapter);
-        new TabLayoutMediator(tabLayout, viewPager,
-                (tab, position) -> tab.setText("OBJECT " + (position + 1))
-        ).attach();
+        new TabLayoutMediator(tabLayout, viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
+            @Override
+            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                if (position == 0) {
+                    tab.setText("Where and for what ?");
+                }
+                else if (position == 1) {
+                    tab.setText("When");
+                }
+                else {
+                    tab.setText("With who ?");
+                }
+            }
+        }).attach();
 
     }
 

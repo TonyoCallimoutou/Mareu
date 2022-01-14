@@ -1,16 +1,22 @@
 package com.example.mareu.ui.reunion_list;
 
+import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
+import android.widget.FrameLayout;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.mareu.R;
 import com.example.mareu.di.DI;
@@ -46,6 +52,9 @@ public class AddReunionFragmentDate extends Fragment {
     ApiService mApiService;
     Reunion mReunion;
 
+    private final String KEY_ORIENTATION = "KEY_ORIENTATION";
+
+
     public AddReunionFragmentDate() {
 
     }
@@ -78,7 +87,8 @@ public class AddReunionFragmentDate extends Fragment {
 
         pickerTime.setIs24HourView(true);
 
-        year = pickerDate.getYear() ;
+
+        year = pickerDate.getYear();
         month = pickerDate.getMonth();
         day = pickerDate.getDayOfMonth();
         hour = pickerTime.getHour();
@@ -112,6 +122,29 @@ public class AddReunionFragmentDate extends Fragment {
         date = new GregorianCalendar(year,month,day,hour,minute);
 
         mReunion.setTime(date);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable(KEY_ORIENTATION,mReunion);
+    }
+
+
+
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        LayoutInflater inflater = LayoutInflater.from(getActivity());
+
+        populateViewForOrientation(inflater, (ViewGroup) getView());
+
+    }
+
+    public void populateViewForOrientation(LayoutInflater inflater, ViewGroup viewGroup) {
+        viewGroup.removeAllViewsInLayout();
+        inflater.inflate(R.layout.fragment_add_reunion_date,viewGroup);
     }
 
 }
