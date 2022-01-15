@@ -4,6 +4,7 @@
     <dimen name="margin_save_button"> 4dp </dimen>
     <dimen name="margin_picker_time_and_date"> 4dp </dimen>
     <dimen name="margin_top_choice_place"> 8dp </dimen>
+    <dimen name="padding_item_spinner"> 8dp </dimen>
 
     <dimen name="font_size_text_list"> 14sp </dimen>
     <dimen name="font_size_text_add_page1"> 16sp </dimen>

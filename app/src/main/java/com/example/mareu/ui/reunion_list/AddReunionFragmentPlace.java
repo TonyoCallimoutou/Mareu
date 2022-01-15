@@ -75,8 +75,6 @@ public class AddReunionFragmentPlace extends Fragment {
         ArrayAdapter<Place> placeAdapter = new ArrayAdapter<Place>(getContext(),
                 R.layout.spinner_item_black, mSetData.getArrayPlaces());
 
-        placeAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-
 
         mSpinnerPlace.setAdapter(placeAdapter);
 

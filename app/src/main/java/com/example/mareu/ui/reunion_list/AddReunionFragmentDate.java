@@ -52,8 +52,6 @@ public class AddReunionFragmentDate extends Fragment {
     ApiService mApiService;
     Reunion mReunion;
 
-    private final String KEY_ORIENTATION = "KEY_ORIENTATION";
-
 
     public AddReunionFragmentDate() {
 
@@ -87,13 +85,24 @@ public class AddReunionFragmentDate extends Fragment {
 
         pickerTime.setIs24HourView(true);
 
+        if (mReunion.getTime() == null) {
+            year = pickerDate.getYear();
+            month = pickerDate.getMonth();
+            day = pickerDate.getDayOfMonth();
+            hour = pickerTime.getHour();
+            minute = pickerTime.getMinute();
+        }
+        else {
 
-        year = pickerDate.getYear();
-        month = pickerDate.getMonth();
-        day = pickerDate.getDayOfMonth();
-        hour = pickerTime.getHour();
-        minute = pickerTime.getMinute();
+            year = mReunion.getTime().get(Calendar.YEAR);
+            month = mReunion.getTime().get(Calendar.MONTH);
+            day = mReunion.getTime().get(Calendar.DAY_OF_MONTH);
+            hour = mReunion.getTime().get(Calendar.HOUR_OF_DAY);
+            minute = mReunion.getTime().get(Calendar.MINUTE);
 
+            pickerTime.setCurrentHour(hour);
+            pickerTime.setCurrentMinute(minute);
+        }
 
         pickerDate.init(year, month, day, new DatePicker.OnDateChangedListener() {
             @Override
@@ -120,31 +129,31 @@ public class AddReunionFragmentDate extends Fragment {
         });
 
         date = new GregorianCalendar(year,month,day,hour,minute);
-
         mReunion.setTime(date);
+
     }
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putSerializable(KEY_ORIENTATION,mReunion);
-    }
-
-
 
     @Override
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
+
         LayoutInflater inflater = LayoutInflater.from(getActivity());
 
         populateViewForOrientation(inflater, (ViewGroup) getView());
 
+        pickerDate = getView().findViewById(R.id.picker_date);
+        pickerTime = getView().findViewById(R.id.picker_time);
+
+        initPicker();
+
     }
+
 
     public void populateViewForOrientation(LayoutInflater inflater, ViewGroup viewGroup) {
         viewGroup.removeAllViewsInLayout();
         inflater.inflate(R.layout.fragment_add_reunion_date,viewGroup);
     }
+
 
 }

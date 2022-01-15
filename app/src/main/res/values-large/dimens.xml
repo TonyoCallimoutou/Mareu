@@ -5,6 +5,7 @@
     <dimen name="margin_save_button"> 32dp </dimen>
     <dimen name="margin_picker_time_and_date"> 32dp </dimen>
     <dimen name="margin_top_choice_place"> 64dp </dimen>
+    <dimen name="padding_item_spinner"> 16dp </dimen>
 
     <dimen name="font_size_text_list"> 16sp </dimen>
     <dimen name="font_size_text_add_page1"> 20sp </dimen>

@@ -61,7 +61,7 @@ public class AddReunionActivity extends AppCompatActivity {
                     tab.setText("Where and for what ?");
                 }
                 else if (position == 1) {
-                    tab.setText("When");
+                    tab.setText("When ?");
                 }
                 else {
                     tab.setText("With who ?");
