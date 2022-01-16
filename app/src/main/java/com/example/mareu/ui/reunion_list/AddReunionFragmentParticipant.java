@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckedTextView;
 import android.widget.ListView;
 
 import com.example.mareu.R;
@@ -76,8 +77,11 @@ public class AddReunionFragmentParticipant extends Fragment {
 
         listViewParticipant.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
-        ArrayAdapter<Participant> participantAdapter = new ArrayAdapter<>(getContext(),
-                android.R.layout.simple_list_item_multiple_choice, mSetData.getArrayParticipants());
+        // List with "Add all"
+        String[] participants = mSetData.getStringParticipants();
+
+        ArrayAdapter<String> participantAdapter = new ArrayAdapter<>(getContext(),
+                android.R.layout.simple_list_item_multiple_choice, participants);
 
         listViewParticipant.setAdapter(participantAdapter);
 
@@ -85,13 +89,37 @@ public class AddReunionFragmentParticipant extends Fragment {
         listViewParticipant.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if (listParticipant.contains(mSetData.getArrayParticipants()[i])) {
-                    listParticipant.remove(mSetData.getArrayParticipants()[i]);
+                if (i==0) {
+                    CheckedTextView v = (CheckedTextView) view;
+                    if (v.isChecked()) {
+
+                        for (int j=0; j< participants.length; j++) {
+                            listViewParticipant.setItemChecked(j,true);
+                        }
+
+                        listParticipant = mApiService.getParticipant();
+                    }
+                    else {
+
+                        for (int j=0; j< participants.length;j++) {
+                            listViewParticipant.setItemChecked(j,false);
+                        }
+
+                        listParticipant.clear();
+                    }
                 }
                 else {
-                    listParticipant.add(mSetData.getArrayParticipants()[i]);
-                }
 
+                    listViewParticipant.setItemChecked(0,false);
+
+                    if (listParticipant.contains(mSetData.getArrayParticipants()[i-1])) {
+                        listParticipant.remove(mSetData.getArrayParticipants()[i-1]);
+                    }
+                    else {
+                        listParticipant.add(mSetData.getArrayParticipants()[i-1]);
+                    }
+
+                }
                 mReunion.setParticipant(listParticipant);
             }
         });

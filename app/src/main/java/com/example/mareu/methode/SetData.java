@@ -61,8 +61,20 @@ public class SetData {
     }
 
     public Participant[] getArrayParticipants() {
+
         return participants;
     }
+
+    public String[] getStringParticipants() {
+        String[] newArray = new String[participants.length+1];
+        newArray[0] = "Add all";
+        for (int i=0; i<participants.length; i++) {
+            newArray[i+1] = participants[i].toString();
+        }
+        return newArray;
+    }
+
+
 
     public void setArrayParticipants(Participant[] participants) {
         this.participants = participants;

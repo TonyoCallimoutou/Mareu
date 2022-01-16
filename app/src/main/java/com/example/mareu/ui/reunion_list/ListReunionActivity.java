@@ -5,17 +5,16 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
-import android.widget.Spinner;
 
 import com.example.mareu.R;
 import com.example.mareu.di.DI;
+import com.example.mareu.methode.MySpinnerFilter;
 import com.example.mareu.methode.SetData;
 import com.example.mareu.service.ApiService;
 
@@ -31,7 +30,7 @@ public class ListReunionActivity extends AppCompatActivity{
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
     @BindView(R.id.spinner_filter)
-    Spinner mSpinnerFilter;
+    MySpinnerFilter mSpinnerFilter;
 
 
     ApiService mApiService;
@@ -50,7 +49,11 @@ public class ListReunionActivity extends AppCompatActivity{
 
         setData = new SetData(mApiService);
 
+        initFragment(0,null);
+
         getFilter();
+
+
 
     }
 
@@ -59,10 +62,10 @@ public class ListReunionActivity extends AppCompatActivity{
         ArrayAdapter<String> filterAdapter = new ArrayAdapter<String>(this,
                 R.layout.spinner_item_white,setData.getArrayFilter());
 
-
         mSpinnerFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
                 if ( i == 1 ) {
                     createDatePickerDialog();
                 }
@@ -79,8 +82,8 @@ public class ListReunionActivity extends AppCompatActivity{
 
             }
         });
-
         mSpinnerFilter.setAdapter(filterAdapter);
+
 
     }
 
