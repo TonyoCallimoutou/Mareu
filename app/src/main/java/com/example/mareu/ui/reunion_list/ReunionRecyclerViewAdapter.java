@@ -3,7 +3,6 @@ package com.example.mareu.ui.reunion_list;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -12,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mareu.R;
 import com.example.mareu.event.DeleteReunionEvent;
-import com.example.mareu.model.Place;
 import com.example.mareu.model.Reunion;
 
 import org.greenrobot.eventbus.EventBus;

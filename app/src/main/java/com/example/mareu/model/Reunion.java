@@ -1,14 +1,9 @@
 package com.example.mareu.model;
 
-import android.annotation.SuppressLint;
-import android.text.Editable;
-
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 public class Reunion implements Serializable {
 
