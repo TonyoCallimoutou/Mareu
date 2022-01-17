@@ -76,15 +76,51 @@ public class AddReunionActivityTest {
     }
 
     @Test
-    public void myReunionsList_addActivity_AllInformation() {
+    public void myReunionsList_addActivity_PlaceInformation() {
+        onView(withId(R.id.fab_add_reunion))
+                .perform(click());
+
+        onView(withId(R.id.spinner_place))
+                .perform(click());
+        onData(allOf(is(instanceOf(Place.class)), is(FakeApiGenerator.FAKE_PLACE.get(3))))
+                .perform(click());
+
+        onView(withId(R.id.create))
+                .perform(click());
+
+        onView(withId(R.id.recyclerview_reunion_fragment))
+                .check(new RecyclerViewItemCountAssertion(ITEMS_COUNT + 1));
+
+        ITEMS_COUNT++;
+
+
+        onView(withId(R.id.item_list_place))
+                .check(matches(withText("Salle D")));
+
+    }
+
+    @Test
+    public void myReunionsList_addActivity_TopicInformation() {
         onView(withId(R.id.fab_add_reunion))
                 .perform(click());
 
         onView(withId(R.id.input_topic_edit_text)).perform(typeText("Topic test"));
 
-        onView(withId(R.id.spinner_place))
+
+        onView(withId(R.id.create))
                 .perform(click());
-        onData(allOf(is(instanceOf(Place.class)), is(FakeApiGenerator.FAKE_PLACE.get(3))))
+        onView(withId(R.id.recyclerview_reunion_fragment))
+                .check(new RecyclerViewItemCountAssertion(1));
+        ITEMS_COUNT++;
+
+
+        onView(withId(R.id.item_list_topic))
+                .check(matches(withText("Topic test")));
+    }
+
+    @Test
+    public void myReunionList_addActivity_dateInformation() {
+        onView(withId(R.id.fab_add_reunion))
                 .perform(click());
 
         onView(withId(R.id.container_add_fragment))
@@ -95,6 +131,24 @@ public class AddReunionActivityTest {
         onView(withId(R.id.picker_time))
                 .perform(PickerActions.setTime(20,20));
 
+        onView(withId(R.id.create))
+                .perform(click());
+        onView(withId(R.id.recyclerview_reunion_fragment))
+                .check(new RecyclerViewItemCountAssertion(1));
+        ITEMS_COUNT++;
+
+
+        onView(withId(R.id.item_list_time))
+                .check(matches(withText("2000/12/12 at 20:20")));
+    }
+
+    @Test
+    public void myReunionList_addActivity_ParticipantsInformation() {
+        onView(withId(R.id.fab_add_reunion))
+                .perform(click());
+
+        onView(withId(R.id.container_add_fragment))
+                .perform(swipeLeft());
         onView(withId(R.id.container_add_fragment))
                 .perform(swipeLeft());
 
@@ -103,23 +157,12 @@ public class AddReunionActivityTest {
         onData(Matchers.allOf(Matchers.is(Matchers.instanceOf(String.class)), Matchers.is("viviane@lamazone.com")))
                 .perform(click());
 
-
         onView(withId(R.id.create))
                 .perform(click());
         onView(withId(R.id.recyclerview_reunion_fragment))
                 .check(new RecyclerViewItemCountAssertion(1));
-
         ITEMS_COUNT++;
 
-
-        onView(withId(R.id.item_list_place))
-                .check(matches(withText("Salle D")));
-
-        onView(withId(R.id.item_list_topic))
-                .check(matches(withText("Topic test")));
-
-        onView(withId(R.id.item_list_time))
-                .check(matches(withText("2000/12/12 at 20:20")));
 
         onView(withId(R.id.item_list_participant))
                 .check(matches(withText("[alex@lamazone.com, viviane@lamazone.com]")));

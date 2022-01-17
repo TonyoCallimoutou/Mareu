@@ -43,7 +43,7 @@ public class ReunionRecyclerViewAdapter extends RecyclerView.Adapter<ReunionRecy
 
         holder.mReunionPlace.setText(doString(reunion.getPlace()));
         holder.mReunionTime.setText(doString(reunion.getStringTime()));
-        holder.mReunionTopic.setText(reunion.getTopic());
+        holder.mReunionTopic.setText(doString(reunion.getTopic()));
         holder.mReunionParticipant.setText(doString(reunion.getParticipant()));
         holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +56,7 @@ public class ReunionRecyclerViewAdapter extends RecyclerView.Adapter<ReunionRecy
 
     public String doString(Object object) {
         if (object == null) {
-            return "Aucune donnée";
+            return "no data";
         }
         else {
             return object.toString();
