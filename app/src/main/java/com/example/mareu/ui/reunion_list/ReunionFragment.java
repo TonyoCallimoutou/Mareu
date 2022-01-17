@@ -1,15 +1,14 @@
 package com.example.mareu.ui.reunion_list;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.mareu.R;
 import com.example.mareu.di.DI;
@@ -23,7 +22,6 @@ import org.greenrobot.eventbus.Subscribe;
 
 import java.io.Serializable;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -90,7 +88,7 @@ public class ReunionFragment extends Fragment {
         mObject = getArguments().getSerializable(OBJECT);
 
         if (mFilterPosition == 0) {
-            mReunion = mApiService.getReunion();
+            mReunion = mApiService.getReunions();
         }
 
         else if (mFilterPosition == 1) {

@@ -1,6 +1,9 @@
 package com.example.mareu.ui.reunion_list;
 
+import android.os.Build;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
@@ -17,6 +20,7 @@ public class AddReunionPageAdapter extends FragmentStateAdapter {
         AddReunionPageAdapter.reunion = reunion;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @NonNull
     @Override
     public Fragment createFragment(int position) {

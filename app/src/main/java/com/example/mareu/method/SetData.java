@@ -1,28 +1,8 @@
-package com.example.mareu.methode;
+package com.example.mareu.method;
 
-import android.app.AlertDialog;
-import android.app.DatePickerDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
-import android.widget.ListView;
-import android.widget.Spinner;
-
-import com.example.mareu.R;
 import com.example.mareu.model.Participant;
 import com.example.mareu.model.Place;
-import com.example.mareu.model.Reunion;
 import com.example.mareu.service.ApiService;
-import com.example.mareu.ui.reunion_list.ListReunionActivity;
-import com.example.mareu.ui.reunion_list.ReunionFragment;
-
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 public class SetData {
 
@@ -31,14 +11,14 @@ public class SetData {
     String[] filter;
 
     public SetData(ApiService api) {
-        places = new Place[api.getPlace().size()];
-        for (int i = 0; i < api.getPlace().size(); i++) {
-            places[i] = api.getPlace().get(i);
+        places = new Place[api.getPlaces().size()];
+        for (int i = 0; i < api.getPlaces().size(); i++) {
+            places[i] = api.getPlaces().get(i);
         }
 
-        participants = new Participant[api.getParticipant().size()];
-        for (int i = 0; i< api.getParticipant().size(); i++) {
-            participants[i] = api.getParticipant().get(i);
+        participants = new Participant[api.getParticipants().size()];
+        for (int i = 0; i< api.getParticipants().size(); i++) {
+            participants[i] = api.getParticipants().get(i);
         }
 
         filter = new String[] {"Tout", "Filter by time", "Filter by place"};

@@ -5,7 +5,6 @@ import com.example.mareu.model.Place;
 import com.example.mareu.model.Reunion;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public interface ApiService {
@@ -14,7 +13,7 @@ public interface ApiService {
     /**
      * Get list of Reunion
      */
-    List<Reunion> getReunion();
+    List<Reunion> getReunions();
 
     /**
      * Add new reunion
@@ -40,17 +39,17 @@ public interface ApiService {
     /**
      * Get list of Employee
      */
-    List<Participant> getParticipant();
+    List<Participant> getParticipants();
 
     // Place
     /**
      * Get list of Place
      */
-    List<Place> getPlace();
+    List<Place> getPlaces();
 
     /**
      * Get Empty list of Employee
      */
-    List<Participant> getParticipantEmpty();
+    List<Participant> getParticipantsEmpty();
 
 }

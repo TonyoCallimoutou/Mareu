@@ -1,9 +1,6 @@
 package com.example.mareu.ui.reunion_list;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +9,11 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckedTextView;
 import android.widget.ListView;
 
+import androidx.fragment.app.Fragment;
+
 import com.example.mareu.R;
 import com.example.mareu.di.DI;
-import com.example.mareu.methode.SetData;
+import com.example.mareu.method.SetData;
 import com.example.mareu.model.Participant;
 import com.example.mareu.model.Reunion;
 import com.example.mareu.service.ApiService;
@@ -51,7 +50,7 @@ public class AddReunionFragmentParticipant extends Fragment {
         mApiService = DI.getReunionApiService();
         mSetData = new SetData(mApiService);
 
-        listParticipant = mApiService.getParticipantEmpty();
+        listParticipant = mApiService.getParticipantsEmpty();
     }
 
     @Override
@@ -97,7 +96,7 @@ public class AddReunionFragmentParticipant extends Fragment {
                             listViewParticipant.setItemChecked(j,true);
                         }
 
-                        listParticipant = mApiService.getParticipant();
+                        listParticipant = mApiService.getParticipants();
                     }
                     else {
 

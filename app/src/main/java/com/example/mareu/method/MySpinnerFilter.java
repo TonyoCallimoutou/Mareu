@@ -1,8 +1,7 @@
-package com.example.mareu.methode;
+package com.example.mareu.method;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.Spinner;
 
 public class MySpinnerFilter extends androidx.appcompat.widget.AppCompatSpinner {
 

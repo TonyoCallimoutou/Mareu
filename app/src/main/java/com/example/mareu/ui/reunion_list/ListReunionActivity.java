@@ -1,8 +1,5 @@
 package com.example.mareu.ui.reunion_list;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
@@ -12,10 +9,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.example.mareu.R;
 import com.example.mareu.di.DI;
-import com.example.mareu.methode.MySpinnerFilter;
-import com.example.mareu.methode.SetData;
+import com.example.mareu.method.MySpinnerFilter;
+import com.example.mareu.method.SetData;
 import com.example.mareu.service.ApiService;
 
 import java.util.Calendar;
@@ -49,7 +49,7 @@ public class ListReunionActivity extends AppCompatActivity{
 
         setData = new SetData(mApiService);
 
-        initFragment(0,null);
+        initListReunionFragment(0,null);
 
         getFilter();
 
@@ -73,7 +73,7 @@ public class ListReunionActivity extends AppCompatActivity{
                     createAlertDialog();
                 }
                 else {
-                    initFragment(i,null);
+                    initListReunionFragment(i,null);
                 }
             }
 
@@ -110,7 +110,7 @@ public class ListReunionActivity extends AppCompatActivity{
                 date.set(Calendar.MONTH,monthOfYear);
                 date.set(Calendar.DAY_OF_MONTH,dayOfMonth);
 
-                initFragment(1,date);
+                initListReunionFragment(1,date);
 
             }
         };
@@ -132,7 +132,7 @@ public class ListReunionActivity extends AppCompatActivity{
         builder.setItems(setData.getStringArrayPlaces(), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                initFragment(2,setData.getArrayPlaces()[i]);
+                initListReunionFragment(2,setData.getArrayPlaces()[i]);
                 dialogInterface.dismiss();
             }
         });
@@ -144,7 +144,7 @@ public class ListReunionActivity extends AppCompatActivity{
     }
 
 
-    public void initFragment(int filterPosition, Object object) {
+    public void initListReunionFragment(int filterPosition, Object object) {
         reunionFragment = new ReunionFragment().newInstance(filterPosition,object);
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, reunionFragment)

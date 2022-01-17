@@ -4,9 +4,7 @@ import com.example.mareu.model.Participant;
 import com.example.mareu.model.Place;
 import com.example.mareu.model.Reunion;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class FakeApiService implements ApiService {
@@ -16,7 +14,7 @@ public class FakeApiService implements ApiService {
     private final List<Place> places = FakeApiGenerator.generatePlace();
 
     @Override
-    public List<Reunion> getReunion() {
+    public List<Reunion> getReunions() {
         return reunions;
     }
 
@@ -48,6 +46,8 @@ public class FakeApiService implements ApiService {
     public List<Reunion> getReunionsByPlace(Place place) {
         List<Reunion> reunionsByPlace = FakeApiGenerator.generateReunions();
         reunionsByPlace.clear();
+
+
         for (int i=0; i<reunions.size(); i++) {
             if (reunions.get(i).getPlace().equals(place)) {
                 reunionsByPlace.add(reunions.get(i));
@@ -57,17 +57,17 @@ public class FakeApiService implements ApiService {
     }
 
     @Override
-    public List<Participant> getParticipant() {
+    public List<Participant> getParticipants() {
         return participants;
     }
 
     @Override
-    public List<Place> getPlace() {
+    public List<Place> getPlaces() {
         return places;
     }
 
     @Override
-    public List<Participant> getParticipantEmpty() {
+    public List<Participant> getParticipantsEmpty() {
         List<Participant> listVide = FakeApiGenerator.generateParticipants();
         listVide.clear();
         return  listVide;

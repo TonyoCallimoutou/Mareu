@@ -1,9 +1,6 @@
 package com.example.mareu.ui.reunion_list;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -13,9 +10,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import androidx.fragment.app.Fragment;
+
 import com.example.mareu.R;
 import com.example.mareu.di.DI;
-import com.example.mareu.methode.SetData;
+import com.example.mareu.method.SetData;
 import com.example.mareu.model.Place;
 import com.example.mareu.model.Reunion;
 import com.example.mareu.service.ApiService;

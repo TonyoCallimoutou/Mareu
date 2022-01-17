@@ -4,11 +4,10 @@ import com.example.mareu.model.Participant;
 import com.example.mareu.model.Place;
 import com.example.mareu.model.Reunion;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class FakeApiGenerator {
@@ -45,12 +44,14 @@ public class FakeApiGenerator {
             FAKE_PARTICIPANT.get(5)
     );
 
-    public static Calendar date = Calendar.getInstance();
+    public static Calendar date0 = new GregorianCalendar(2021,10,28,9,30);
+    public static Calendar date1 = new GregorianCalendar(2021,11,28,11,0);
+    public static Calendar date2 = new GregorianCalendar(2021,12,28,16,30);
 
     public static List<Reunion> FAKE_REUNION = Arrays.asList(
-            new Reunion(001,date,FAKE_PLACE.get(0),"Peach",PARTICIPANT1),
-            new Reunion(002,date,FAKE_PLACE.get(1),"Mario",PARTICIPANT2),
-            new Reunion(003,date,FAKE_PLACE.get(2),"Luigi",PARTICIPANT3)
+            new Reunion(001,date0,FAKE_PLACE.get(0),"Peach",PARTICIPANT1),
+            new Reunion(002,date1,FAKE_PLACE.get(1),"Mario",PARTICIPANT2),
+            new Reunion(003,date2,FAKE_PLACE.get(2),"Luigi",PARTICIPANT3)
     );
 
     static List<Reunion> generateReunions() {
