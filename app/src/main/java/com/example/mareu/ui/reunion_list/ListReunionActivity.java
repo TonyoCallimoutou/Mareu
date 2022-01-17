@@ -70,7 +70,7 @@ public class ListReunionActivity extends AppCompatActivity{
                     createDatePickerDialog();
                 }
                 else if ( i == 2 ) {
-                    createAlertDialog();
+                    createAlertDialogPlace();
                 }
                 else {
                     initListReunionFragment(i,null);
@@ -124,7 +124,7 @@ public class ListReunionActivity extends AppCompatActivity{
         datePickerDialog.show();
     }
 
-    public void createAlertDialog () {
+    public void createAlertDialogPlace () {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle("Choisir une Salle");

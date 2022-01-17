@@ -71,15 +71,14 @@ public class AddReunionFragmentDate extends Fragment {
 
         ButterKnife.bind(this,view);
 
+        initTime();
+
         initPicker();
 
         return view;
     }
 
-    public void initPicker() {
-
-        pickerTime.setIs24HourView(true);
-
+    public void initTime() {
         if (mReunion.getTime() == null) {
             year = pickerDate.getYear();
             month = pickerDate.getMonth();
@@ -98,6 +97,11 @@ public class AddReunionFragmentDate extends Fragment {
             pickerTime.setCurrentHour(hour);
             pickerTime.setCurrentMinute(minute);
         }
+    }
+
+    public void initPicker() {
+
+        pickerTime.setIs24HourView(true);
 
         pickerDate.init(year, month, day, new DatePicker.OnDateChangedListener() {
             @Override
@@ -140,7 +144,9 @@ public class AddReunionFragmentDate extends Fragment {
         pickerDate = getView().findViewById(R.id.picker_date);
         pickerTime = getView().findViewById(R.id.picker_time);
 
+        initTime();
         initPicker();
+
 
     }
 
